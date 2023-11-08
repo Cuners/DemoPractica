@@ -1,0 +1,1257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PracticaModeratorEntitiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activnost_meropriyatie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_activnosti" Type="int" />
+          <Property Name="ID_meropriyatiya" Type="int" />
+          <Property Name="Den_provedeniya" Type="int" />
+          <Property Name="Vremya_nachala" Type="time" Precision="7" />
+          <Property Name="ID_polzovatelya_moderator" Type="int" />
+        </EntityType>
+        <EntityType Name="Activnosti">
+          <Key>
+            <PropertyRef Name="ID_activnost" />
+          </Key>
+          <Property Name="ID_activnost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activnost" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gorod_meropriyatiye">
+          <Key>
+            <PropertyRef Name="ID_gorod_merop" />
+          </Key>
+          <Property Name="ID_gorod_merop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_meropriyatiya" Type="int" Nullable="false" />
+          <Property Name="ID_goroda" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goroda">
+          <Key>
+            <PropertyRef Name="ID_gorod" />
+          </Key>
+          <Property Name="ID_gorod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazvanie" Type="nvarchar(max)" />
+          <Property Name="Ssilka" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_meropriatia" />
+          </Key>
+          <Property Name="ID_meropriatia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naimenovanie" Type="nvarchar(max)" />
+          <Property Name="Date_nachala" Type="date" />
+          <Property Name="Colvo_dney" Type="int" />
+          <Property Name="ID_polzovatelya" Type="int" />
+          <Property Name="ImagePho" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Meropriyatie_juri">
+          <Key>
+            <PropertyRef Name="ID_meropriyatiya" />
+            <PropertyRef Name="ID_activnosti" />
+            <PropertyRef Name="ID_polzovatelya_juri" />
+          </Key>
+          <Property Name="ID_meropriyatiya" Type="int" Nullable="false" />
+          <Property Name="ID_activnosti" Type="int" Nullable="false" />
+          <Property Name="ID_polzovatelya_juri" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+          <Key>
+            <PropertyRef Name="ID_meropriatiya" />
+            <PropertyRef Name="ID_tip_meropriyatiya" />
+            <PropertyRef Name="ID_napravleniya" />
+          </Key>
+          <Property Name="ID_meropriatiya" Type="int" Nullable="false" />
+          <Property Name="ID_tip_meropriyatiya" Type="int" Nullable="false" />
+          <Property Name="ID_napravleniya" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Napravleniya">
+          <Key>
+            <PropertyRef Name="ID_napravlenia" />
+          </Key>
+          <Property Name="ID_napravlenia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Napravlenie" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Poli">
+          <Key>
+            <PropertyRef Name="ID_pol" />
+          </Key>
+          <Property Name="ID_pol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pol" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Polzovatel_napravlenie">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_napravlenie" />
+          </Key>
+          <Property Name="ID_polzovatel_napravlenie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_polzovatelya" Type="int" Nullable="false" />
+          <Property Name="ID_napravlenie" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Polzovatel_pol">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_pol" />
+          </Key>
+          <Property Name="ID_polzovatel_pol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_polzovatelya" Type="int" Nullable="false" />
+          <Property Name="ID_pola" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Polzovatel_role">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_role" />
+          </Key>
+          <Property Name="ID_polzovatel_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_polzovatel" Type="int" Nullable="false" />
+          <Property Name="ID_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Polzovateli">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Phamilia" Type="nvarchar(max)" />
+          <Property Name="Ima" Type="nvarchar(max)" />
+          <Property Name="Otchestvo" Type="nvarchar(max)" />
+          <Property Name="Pochta" Type="nvarchar(max)" />
+          <Property Name="Data_rozhdenia" Type="date" />
+          <Property Name="Telephone" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="ID_strani" Type="int" />
+        </EntityType>
+        <EntityType Name="Polzovateli_meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_meropriyatia" />
+          </Key>
+          <Property Name="ID_polzovatel_meropriyatia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_polzovatelya" Type="int" Nullable="false" />
+          <Property Name="ID_meropriatia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Roles" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Strani">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cod2" Type="int" Nullable="false" />
+          <Property Name="Nazvanie_strani" Type="nvarchar(max)" />
+          <Property Name="Angliiskoye_nazvanie" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tipi_meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_tip_meroproatiya" />
+          </Key>
+          <Property Name="ID_tip_meroproatiya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tip_meropriatiya" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Activnost_meropriyatie_Activnosti">
+          <End Role="Activnosti" Type="Self.Activnosti" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activnosti">
+              <PropertyRef Name="ID_activnost" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_activnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activnost_meropriyatie_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activnost_meropriyatie_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_polzovatelya_moderator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorod_meropriyatiye_Goroda">
+          <End Role="Goroda" Type="Self.Goroda" Multiplicity="1" />
+          <End Role="Gorod_meropriyatiye" Type="Self.Gorod_meropriyatiye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goroda">
+              <PropertyRef Name="ID_gorod" />
+            </Principal>
+            <Dependent Role="Gorod_meropriyatiye">
+              <PropertyRef Name="ID_goroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorod_meropriyatiye_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Gorod_meropriyatiye" Type="Self.Gorod_meropriyatiye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Gorod_meropriyatiye">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriatiya_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="0..1" />
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meropriatiya">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Activnosti">
+          <End Role="Activnosti" Type="Self.Activnosti" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activnosti">
+              <PropertyRef Name="ID_activnost" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_activnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_polzovatelya_juri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_meropriatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya">
+          <End Role="Napravleniya" Type="Self.Napravleniya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napravleniya">
+              <PropertyRef Name="ID_napravlenia" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_napravleniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya">
+          <End Role="Tipi_meropriatiya" Type="Self.Tipi_meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipi_meropriatiya">
+              <PropertyRef Name="ID_tip_meroproatiya" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_tip_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_napravlenie_Napravleniya">
+          <End Role="Napravleniya" Type="Self.Napravleniya" Multiplicity="1" />
+          <End Role="Polzovatel_napravlenie" Type="Self.Polzovatel_napravlenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napravleniya">
+              <PropertyRef Name="ID_napravlenia" />
+            </Principal>
+            <Dependent Role="Polzovatel_napravlenie">
+              <PropertyRef Name="ID_napravlenie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_napravlenie_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_napravlenie" Type="Self.Polzovatel_napravlenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_napravlenie">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_pol_Poli">
+          <End Role="Poli" Type="Self.Poli" Multiplicity="1" />
+          <End Role="Polzovatel_pol" Type="Self.Polzovatel_pol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poli">
+              <PropertyRef Name="ID_pol" />
+            </Principal>
+            <Dependent Role="Polzovatel_pol">
+              <PropertyRef Name="ID_pola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_pol_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_pol" Type="Self.Polzovatel_pol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_pol">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_role_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_role" Type="Self.Polzovatel_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_role">
+              <PropertyRef Name="ID_polzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_role_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Polzovatel_role" Type="Self.Polzovatel_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Polzovatel_role">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_meropriatiya_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Polzovateli_meropriatiya" Type="Self.Polzovateli_meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Polzovateli_meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_meropriatiya_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovateli_meropriatiya" Type="Self.Polzovateli_meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovateli_meropriatiya">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_Strani">
+          <End Role="Strani" Type="Self.Strani" Multiplicity="0..1" />
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Strani">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovateli">
+              <PropertyRef Name="ID_strani" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PracticaModeratorEntitiModelContainer">
+          <EntitySet Name="Activnost_meropriyatie" EntityType="Self.Activnost_meropriyatie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activnosti" EntityType="Self.Activnosti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gorod_meropriyatiye" EntityType="Self.Gorod_meropriyatiye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goroda" EntityType="Self.Goroda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meropriatiya" EntityType="Self.Meropriatiya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meropriyatie_juri" EntityType="Self.Meropriyatie_juri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntityType="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Napravleniya" EntityType="Self.Napravleniya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poli" EntityType="Self.Poli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovatel_napravlenie" EntityType="Self.Polzovatel_napravlenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovatel_pol" EntityType="Self.Polzovatel_pol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovatel_role" EntityType="Self.Polzovatel_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovateli" EntityType="Self.Polzovateli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polzovateli_meropriatiya" EntityType="Self.Polzovateli_meropriatiya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Strani" EntityType="Self.Strani" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipi_meropriatiya" EntityType="Self.Tipi_meropriatiya" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Activnost_meropriyatie_Activnosti" Association="Self.FK_Activnost_meropriyatie_Activnosti">
+            <End Role="Activnosti" EntitySet="Activnosti" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activnost_meropriyatie_Meropriatiya" Association="Self.FK_Activnost_meropriyatie_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activnost_meropriyatie_Polzovateli" Association="Self.FK_Activnost_meropriyatie_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorod_meropriyatiye_Goroda" Association="Self.FK_Gorod_meropriyatiye_Goroda">
+            <End Role="Goroda" EntitySet="Goroda" />
+            <End Role="Gorod_meropriyatiye" EntitySet="Gorod_meropriyatiye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorod_meropriyatiye_Meropriatiya" Association="Self.FK_Gorod_meropriyatiye_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Gorod_meropriyatiye" EntitySet="Gorod_meropriyatiye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriatiya_Polzovateli" Association="Self.FK_Meropriatiya_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Activnosti" Association="Self.FK_Meropriyatie_juri_Activnosti">
+            <End Role="Activnosti" EntitySet="Activnosti" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Meropriatiya" Association="Self.FK_Meropriyatie_juri_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Polzovateli" Association="Self.FK_Meropriyatie_juri_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya">
+            <End Role="Napravleniya" EntitySet="Napravleniya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya">
+            <End Role="Tipi_meropriatiya" EntitySet="Tipi_meropriatiya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_napravlenie_Napravleniya" Association="Self.FK_Polzovatel_napravlenie_Napravleniya">
+            <End Role="Napravleniya" EntitySet="Napravleniya" />
+            <End Role="Polzovatel_napravlenie" EntitySet="Polzovatel_napravlenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_napravlenie_Polzovateli" Association="Self.FK_Polzovatel_napravlenie_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_napravlenie" EntitySet="Polzovatel_napravlenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_pol_Poli" Association="Self.FK_Polzovatel_pol_Poli">
+            <End Role="Poli" EntitySet="Poli" />
+            <End Role="Polzovatel_pol" EntitySet="Polzovatel_pol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_pol_Polzovateli" Association="Self.FK_Polzovatel_pol_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_pol" EntitySet="Polzovatel_pol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_role_Polzovateli" Association="Self.FK_Polzovatel_role_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_role" EntitySet="Polzovatel_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_role_Role" Association="Self.FK_Polzovatel_role_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Polzovatel_role" EntitySet="Polzovatel_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_meropriatiya_Meropriatiya" Association="Self.FK_Polzovateli_meropriatiya_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Polzovateli_meropriatiya" EntitySet="Polzovateli_meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_meropriatiya_Polzovateli" Association="Self.FK_Polzovateli_meropriatiya_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovateli_meropriatiya" EntitySet="Polzovateli_meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_Strani" Association="Self.FK_Polzovateli_Strani">
+            <End Role="Strani" EntitySet="Strani" />
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PracticaModeratorEntitiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activnost_meropriyatie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_activnosti" Type="Int32" />
+          <Property Name="ID_meropriyatiya" Type="Int32" />
+          <Property Name="Den_provedeniya" Type="Int32" />
+          <Property Name="Vremya_nachala" Type="Time" Precision="7" />
+          <Property Name="ID_polzovatelya_moderator" Type="Int32" />
+          <NavigationProperty Name="Activnosti" Relationship="Self.FK_Activnost_meropriyatie_Activnosti" FromRole="Activnost_meropriyatie" ToRole="Activnosti" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Activnost_meropriyatie_Meropriatiya" FromRole="Activnost_meropriyatie" ToRole="Meropriatiya" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Activnost_meropriyatie_Polzovateli" FromRole="Activnost_meropriyatie" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Activnosti">
+          <Key>
+            <PropertyRef Name="ID_activnost" />
+          </Key>
+          <Property Name="ID_activnost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activnost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activnost_meropriyatie" Relationship="Self.FK_Activnost_meropriyatie_Activnosti" FromRole="Activnosti" ToRole="Activnost_meropriyatie" />
+          <NavigationProperty Name="Meropriyatie_juri" Relationship="Self.FK_Meropriyatie_juri_Activnosti" FromRole="Activnosti" ToRole="Meropriyatie_juri" />
+        </EntityType>
+        <EntityType Name="Gorod_meropriyatiye">
+          <Key>
+            <PropertyRef Name="ID_gorod_merop" />
+          </Key>
+          <Property Name="ID_gorod_merop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_meropriyatiya" Type="Int32" Nullable="false" />
+          <Property Name="ID_goroda" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Goroda" Relationship="Self.FK_Gorod_meropriyatiye_Goroda" FromRole="Gorod_meropriyatiye" ToRole="Goroda" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Gorod_meropriyatiye_Meropriatiya" FromRole="Gorod_meropriyatiye" ToRole="Meropriatiya" />
+        </EntityType>
+        <EntityType Name="Goroda">
+          <Key>
+            <PropertyRef Name="ID_gorod" />
+          </Key>
+          <Property Name="ID_gorod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazvanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ssilka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gorod_meropriyatiye" Relationship="Self.FK_Gorod_meropriyatiye_Goroda" FromRole="Goroda" ToRole="Gorod_meropriyatiye" />
+        </EntityType>
+        <EntityType Name="Meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_meropriatia" />
+          </Key>
+          <Property Name="ID_meropriatia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naimenovanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_nachala" Type="DateTime" Precision="0" />
+          <Property Name="Colvo_dney" Type="Int32" />
+          <Property Name="ID_polzovatelya" Type="Int32" />
+          <Property Name="ImagePho" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activnost_meropriyatie" Relationship="Self.FK_Activnost_meropriyatie_Meropriatiya" FromRole="Meropriatiya" ToRole="Activnost_meropriyatie" />
+          <NavigationProperty Name="Gorod_meropriyatiye" Relationship="Self.FK_Gorod_meropriyatiye_Meropriatiya" FromRole="Meropriatiya" ToRole="Gorod_meropriyatiye" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Meropriatiya_Polzovateli" FromRole="Meropriatiya" ToRole="Polzovateli" />
+          <NavigationProperty Name="Meropriyatie_juri" Relationship="Self.FK_Meropriyatie_juri_Meropriatiya" FromRole="Meropriatiya" ToRole="Meropriyatie_juri" />
+          <NavigationProperty Name="Meropriyatiye_tip_Meropriyatiya_napravleniye" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya" FromRole="Meropriatiya" ToRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          <NavigationProperty Name="Polzovateli_meropriatiya" Relationship="Self.FK_Polzovateli_meropriatiya_Meropriatiya" FromRole="Meropriatiya" ToRole="Polzovateli_meropriatiya" />
+        </EntityType>
+        <EntityType Name="Meropriyatie_juri">
+          <Key>
+            <PropertyRef Name="ID_meropriyatiya" />
+            <PropertyRef Name="ID_activnosti" />
+            <PropertyRef Name="ID_polzovatelya_juri" />
+          </Key>
+          <Property Name="ID_meropriyatiya" Type="Int32" Nullable="false" />
+          <Property Name="ID_activnosti" Type="Int32" Nullable="false" />
+          <Property Name="ID_polzovatelya_juri" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activnosti" Relationship="Self.FK_Meropriyatie_juri_Activnosti" FromRole="Meropriyatie_juri" ToRole="Activnosti" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Meropriyatie_juri_Meropriatiya" FromRole="Meropriyatie_juri" ToRole="Meropriatiya" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Meropriyatie_juri_Polzovateli" FromRole="Meropriyatie_juri" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+          <Key>
+            <PropertyRef Name="ID_meropriatiya" />
+            <PropertyRef Name="ID_tip_meropriyatiya" />
+            <PropertyRef Name="ID_napravleniya" />
+          </Key>
+          <Property Name="ID_meropriatiya" Type="Int32" Nullable="false" />
+          <Property Name="ID_tip_meropriyatiya" Type="Int32" Nullable="false" />
+          <Property Name="ID_napravleniya" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya" FromRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" ToRole="Meropriatiya" />
+          <NavigationProperty Name="Napravleniya" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya" FromRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" ToRole="Napravleniya" />
+          <NavigationProperty Name="Tipi_meropriatiya" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya" FromRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" ToRole="Tipi_meropriatiya" />
+        </EntityType>
+        <EntityType Name="Napravleniya">
+          <Key>
+            <PropertyRef Name="ID_napravlenia" />
+          </Key>
+          <Property Name="ID_napravlenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Napravlenie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Meropriyatiye_tip_Meropriyatiya_napravleniye" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya" FromRole="Napravleniya" ToRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          <NavigationProperty Name="Polzovatel_napravlenie" Relationship="Self.FK_Polzovatel_napravlenie_Napravleniya" FromRole="Napravleniya" ToRole="Polzovatel_napravlenie" />
+        </EntityType>
+        <EntityType Name="Poli">
+          <Key>
+            <PropertyRef Name="ID_pol" />
+          </Key>
+          <Property Name="ID_pol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Polzovatel_pol" Relationship="Self.FK_Polzovatel_pol_Poli" FromRole="Poli" ToRole="Polzovatel_pol" />
+        </EntityType>
+        <EntityType Name="Polzovatel_napravlenie">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_napravlenie" />
+          </Key>
+          <Property Name="ID_polzovatel_napravlenie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_polzovatelya" Type="Int32" Nullable="false" />
+          <Property Name="ID_napravlenie" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Napravleniya" Relationship="Self.FK_Polzovatel_napravlenie_Napravleniya" FromRole="Polzovatel_napravlenie" ToRole="Napravleniya" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Polzovatel_napravlenie_Polzovateli" FromRole="Polzovatel_napravlenie" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Polzovatel_pol">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_pol" />
+          </Key>
+          <Property Name="ID_polzovatel_pol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_polzovatelya" Type="Int32" Nullable="false" />
+          <Property Name="ID_pola" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Poli" Relationship="Self.FK_Polzovatel_pol_Poli" FromRole="Polzovatel_pol" ToRole="Poli" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Polzovatel_pol_Polzovateli" FromRole="Polzovatel_pol" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Polzovatel_role">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_role" />
+          </Key>
+          <Property Name="ID_polzovatel_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_polzovatel" Type="Int32" Nullable="false" />
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Polzovatel_role_Polzovateli" FromRole="Polzovatel_role" ToRole="Polzovateli" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Polzovatel_role_Role" FromRole="Polzovatel_role" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Polzovateli">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Phamilia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ima" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Otchestvo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pochta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Data_rozhdenia" Type="DateTime" Precision="0" />
+          <Property Name="Telephone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_strani" Type="Int32" />
+          <NavigationProperty Name="Activnost_meropriyatie" Relationship="Self.FK_Activnost_meropriyatie_Polzovateli" FromRole="Polzovateli" ToRole="Activnost_meropriyatie" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Meropriatiya_Polzovateli" FromRole="Polzovateli" ToRole="Meropriatiya" />
+          <NavigationProperty Name="Meropriyatie_juri" Relationship="Self.FK_Meropriyatie_juri_Polzovateli" FromRole="Polzovateli" ToRole="Meropriyatie_juri" />
+          <NavigationProperty Name="Polzovatel_napravlenie" Relationship="Self.FK_Polzovatel_napravlenie_Polzovateli" FromRole="Polzovateli" ToRole="Polzovatel_napravlenie" />
+          <NavigationProperty Name="Polzovatel_pol" Relationship="Self.FK_Polzovatel_pol_Polzovateli" FromRole="Polzovateli" ToRole="Polzovatel_pol" />
+          <NavigationProperty Name="Polzovatel_role" Relationship="Self.FK_Polzovatel_role_Polzovateli" FromRole="Polzovateli" ToRole="Polzovatel_role" />
+          <NavigationProperty Name="Polzovateli_meropriatiya" Relationship="Self.FK_Polzovateli_meropriatiya_Polzovateli" FromRole="Polzovateli" ToRole="Polzovateli_meropriatiya" />
+          <NavigationProperty Name="Strani" Relationship="Self.FK_Polzovateli_Strani" FromRole="Polzovateli" ToRole="Strani" />
+        </EntityType>
+        <EntityType Name="Polzovateli_meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_polzovatel_meropriyatia" />
+          </Key>
+          <Property Name="ID_polzovatel_meropriyatia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_polzovatelya" Type="Int32" Nullable="false" />
+          <Property Name="ID_meropriatia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Meropriatiya" Relationship="Self.FK_Polzovateli_meropriatiya_Meropriatiya" FromRole="Polzovateli_meropriatiya" ToRole="Meropriatiya" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Polzovateli_meropriatiya_Polzovateli" FromRole="Polzovateli_meropriatiya" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Roles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Polzovatel_role" Relationship="Self.FK_Polzovatel_role_Role" FromRole="Role" ToRole="Polzovatel_role" />
+        </EntityType>
+        <EntityType Name="Strani">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cod2" Type="Int32" Nullable="false" />
+          <Property Name="Nazvanie_strani" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Angliiskoye_nazvanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Polzovateli" Relationship="Self.FK_Polzovateli_Strani" FromRole="Strani" ToRole="Polzovateli" />
+        </EntityType>
+        <EntityType Name="Tipi_meropriatiya">
+          <Key>
+            <PropertyRef Name="ID_tip_meroproatiya" />
+          </Key>
+          <Property Name="ID_tip_meroproatiya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tip_meropriatiya" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Meropriyatiye_tip_Meropriyatiya_napravleniye" Relationship="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya" FromRole="Tipi_meropriatiya" ToRole="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+        </EntityType>
+        <Association Name="FK_Activnost_meropriyatie_Activnosti">
+          <End Role="Activnosti" Type="Self.Activnosti" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activnosti">
+              <PropertyRef Name="ID_activnost" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_activnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activnost_meropriyatie_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activnost_meropriyatie_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="0..1" />
+          <End Role="Activnost_meropriyatie" Type="Self.Activnost_meropriyatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activnost_meropriyatie">
+              <PropertyRef Name="ID_polzovatelya_moderator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Activnosti">
+          <End Role="Activnosti" Type="Self.Activnosti" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activnosti">
+              <PropertyRef Name="ID_activnost" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_activnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorod_meropriyatiye_Goroda">
+          <End Role="Goroda" Type="Self.Goroda" Multiplicity="1" />
+          <End Role="Gorod_meropriyatiye" Type="Self.Gorod_meropriyatiye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goroda">
+              <PropertyRef Name="ID_gorod" />
+            </Principal>
+            <Dependent Role="Gorod_meropriyatiye">
+              <PropertyRef Name="ID_goroda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gorod_meropriyatiye_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Gorod_meropriyatiye" Type="Self.Gorod_meropriyatiye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Gorod_meropriyatiye">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriatiya_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="0..1" />
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meropriatiya">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_meropriatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_meropriatiya_Meropriatiya">
+          <End Role="Meropriatiya" Type="Self.Meropriatiya" Multiplicity="1" />
+          <End Role="Polzovateli_meropriatiya" Type="Self.Polzovateli_meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Principal>
+            <Dependent Role="Polzovateli_meropriatiya">
+              <PropertyRef Name="ID_meropriatia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatie_juri_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Meropriyatie_juri" Type="Self.Meropriyatie_juri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meropriyatie_juri">
+              <PropertyRef Name="ID_polzovatelya_juri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya">
+          <End Role="Napravleniya" Type="Self.Napravleniya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napravleniya">
+              <PropertyRef Name="ID_napravlenia" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_napravleniya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya">
+          <End Role="Tipi_meropriatiya" Type="Self.Tipi_meropriatiya" Multiplicity="1" />
+          <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" Type="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipi_meropriatiya">
+              <PropertyRef Name="ID_tip_meroproatiya" />
+            </Principal>
+            <Dependent Role="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <PropertyRef Name="ID_tip_meropriyatiya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_napravlenie_Napravleniya">
+          <End Role="Napravleniya" Type="Self.Napravleniya" Multiplicity="1" />
+          <End Role="Polzovatel_napravlenie" Type="Self.Polzovatel_napravlenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napravleniya">
+              <PropertyRef Name="ID_napravlenia" />
+            </Principal>
+            <Dependent Role="Polzovatel_napravlenie">
+              <PropertyRef Name="ID_napravlenie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_pol_Poli">
+          <End Role="Poli" Type="Self.Poli" Multiplicity="1" />
+          <End Role="Polzovatel_pol" Type="Self.Polzovatel_pol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poli">
+              <PropertyRef Name="ID_pol" />
+            </Principal>
+            <Dependent Role="Polzovatel_pol">
+              <PropertyRef Name="ID_pola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_napravlenie_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_napravlenie" Type="Self.Polzovatel_napravlenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_napravlenie">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_pol_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_pol" Type="Self.Polzovatel_pol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_pol">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_role_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovatel_role" Type="Self.Polzovatel_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovatel_role">
+              <PropertyRef Name="ID_polzovatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovatel_role_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Polzovatel_role" Type="Self.Polzovatel_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Polzovatel_role">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_meropriatiya_Polzovateli">
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="1" />
+          <End Role="Polzovateli_meropriatiya" Type="Self.Polzovateli_meropriatiya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polzovateli">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovateli_meropriatiya">
+              <PropertyRef Name="ID_polzovatelya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polzovateli_Strani">
+          <End Role="Strani" Type="Self.Strani" Multiplicity="0..1" />
+          <End Role="Polzovateli" Type="Self.Polzovateli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Strani">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Polzovateli">
+              <PropertyRef Name="ID_strani" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PracticaModeratorEntitie" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activnost_meropriyatie" EntityType="Self.Activnost_meropriyatie" />
+          <EntitySet Name="Activnosti" EntityType="Self.Activnosti" />
+          <EntitySet Name="Gorod_meropriyatiye" EntityType="Self.Gorod_meropriyatiye" />
+          <EntitySet Name="Goroda" EntityType="Self.Goroda" />
+          <EntitySet Name="Meropriatiya" EntityType="Self.Meropriatiya" />
+          <EntitySet Name="Meropriyatie_juri" EntityType="Self.Meropriyatie_juri" />
+          <EntitySet Name="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntityType="Self.Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          <EntitySet Name="Napravleniya" EntityType="Self.Napravleniya" />
+          <EntitySet Name="Poli" EntityType="Self.Poli" />
+          <EntitySet Name="Polzovatel_napravlenie" EntityType="Self.Polzovatel_napravlenie" />
+          <EntitySet Name="Polzovatel_pol" EntityType="Self.Polzovatel_pol" />
+          <EntitySet Name="Polzovatel_role" EntityType="Self.Polzovatel_role" />
+          <EntitySet Name="Polzovateli" EntityType="Self.Polzovateli" />
+          <EntitySet Name="Polzovateli_meropriatiya" EntityType="Self.Polzovateli_meropriatiya" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Strani" EntityType="Self.Strani" />
+          <EntitySet Name="Tipi_meropriatiya" EntityType="Self.Tipi_meropriatiya" />
+          <AssociationSet Name="FK_Activnost_meropriyatie_Activnosti" Association="Self.FK_Activnost_meropriyatie_Activnosti">
+            <End Role="Activnosti" EntitySet="Activnosti" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activnost_meropriyatie_Meropriatiya" Association="Self.FK_Activnost_meropriyatie_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activnost_meropriyatie_Polzovateli" Association="Self.FK_Activnost_meropriyatie_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Activnost_meropriyatie" EntitySet="Activnost_meropriyatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Activnosti" Association="Self.FK_Meropriyatie_juri_Activnosti">
+            <End Role="Activnosti" EntitySet="Activnosti" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorod_meropriyatiye_Goroda" Association="Self.FK_Gorod_meropriyatiye_Goroda">
+            <End Role="Goroda" EntitySet="Goroda" />
+            <End Role="Gorod_meropriyatiye" EntitySet="Gorod_meropriyatiye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gorod_meropriyatiye_Meropriatiya" Association="Self.FK_Gorod_meropriyatiye_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Gorod_meropriyatiye" EntitySet="Gorod_meropriyatiye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriatiya_Polzovateli" Association="Self.FK_Meropriatiya_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Meropriatiya" Association="Self.FK_Meropriyatie_juri_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_meropriatiya_Meropriatiya" Association="Self.FK_Polzovateli_meropriatiya_Meropriatiya">
+            <End Role="Meropriatiya" EntitySet="Meropriatiya" />
+            <End Role="Polzovateli_meropriatiya" EntitySet="Polzovateli_meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatie_juri_Polzovateli" Association="Self.FK_Meropriyatie_juri_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Meropriyatie_juri" EntitySet="Meropriyatie_juri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya">
+            <End Role="Napravleniya" EntitySet="Napravleniya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya" Association="Self.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya">
+            <End Role="Tipi_meropriatiya" EntitySet="Tipi_meropriatiya" />
+            <End Role="Meropriyatiye_tip_Meropriyatiya_napravleniye" EntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_napravlenie_Napravleniya" Association="Self.FK_Polzovatel_napravlenie_Napravleniya">
+            <End Role="Napravleniya" EntitySet="Napravleniya" />
+            <End Role="Polzovatel_napravlenie" EntitySet="Polzovatel_napravlenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_pol_Poli" Association="Self.FK_Polzovatel_pol_Poli">
+            <End Role="Poli" EntitySet="Poli" />
+            <End Role="Polzovatel_pol" EntitySet="Polzovatel_pol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_napravlenie_Polzovateli" Association="Self.FK_Polzovatel_napravlenie_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_napravlenie" EntitySet="Polzovatel_napravlenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_pol_Polzovateli" Association="Self.FK_Polzovatel_pol_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_pol" EntitySet="Polzovatel_pol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_role_Polzovateli" Association="Self.FK_Polzovatel_role_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovatel_role" EntitySet="Polzovatel_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovatel_role_Role" Association="Self.FK_Polzovatel_role_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Polzovatel_role" EntitySet="Polzovatel_role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_meropriatiya_Polzovateli" Association="Self.FK_Polzovateli_meropriatiya_Polzovateli">
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+            <End Role="Polzovateli_meropriatiya" EntitySet="Polzovateli_meropriatiya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polzovateli_Strani" Association="Self.FK_Polzovateli_Strani">
+            <End Role="Strani" EntitySet="Strani" />
+            <End Role="Polzovateli" EntitySet="Polzovateli" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PracticaModeratorEntitiModelContainer" CdmEntityContainer="PracticaModeratorEntitie">
+          <EntitySetMapping Name="Activnost_meropriyatie">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Activnost_meropriyatie">
+              <MappingFragment StoreEntitySet="Activnost_meropriyatie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_activnosti" ColumnName="ID_activnosti" />
+                <ScalarProperty Name="ID_meropriyatiya" ColumnName="ID_meropriyatiya" />
+                <ScalarProperty Name="Den_provedeniya" ColumnName="Den_provedeniya" />
+                <ScalarProperty Name="Vremya_nachala" ColumnName="Vremya_nachala" />
+                <ScalarProperty Name="ID_polzovatelya_moderator" ColumnName="ID_polzovatelya_moderator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activnosti">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Activnosti">
+              <MappingFragment StoreEntitySet="Activnosti">
+                <ScalarProperty Name="ID_activnost" ColumnName="ID_activnost" />
+                <ScalarProperty Name="Activnost" ColumnName="Activnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gorod_meropriyatiye">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Gorod_meropriyatiye">
+              <MappingFragment StoreEntitySet="Gorod_meropriyatiye">
+                <ScalarProperty Name="ID_gorod_merop" ColumnName="ID_gorod_merop" />
+                <ScalarProperty Name="ID_meropriyatiya" ColumnName="ID_meropriyatiya" />
+                <ScalarProperty Name="ID_goroda" ColumnName="ID_goroda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goroda">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Goroda">
+              <MappingFragment StoreEntitySet="Goroda">
+                <ScalarProperty Name="ID_gorod" ColumnName="ID_gorod" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+                <ScalarProperty Name="Ssilka" ColumnName="Ssilka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meropriatiya">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Meropriatiya">
+              <MappingFragment StoreEntitySet="Meropriatiya">
+                <ScalarProperty Name="ID_meropriatia" ColumnName="ID_meropriatia" />
+                <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+                <ScalarProperty Name="Date_nachala" ColumnName="Date_nachala" />
+                <ScalarProperty Name="Colvo_dney" ColumnName="Colvo_dney" />
+                <ScalarProperty Name="ID_polzovatelya" ColumnName="ID_polzovatelya" />
+                <ScalarProperty Name="ImagePho" ColumnName="ImagePho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meropriyatie_juri">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Meropriyatie_juri">
+              <MappingFragment StoreEntitySet="Meropriyatie_juri">
+                <ScalarProperty Name="ID_meropriyatiya" ColumnName="ID_meropriyatiya" />
+                <ScalarProperty Name="ID_activnosti" ColumnName="ID_activnosti" />
+                <ScalarProperty Name="ID_polzovatelya_juri" ColumnName="ID_polzovatelya_juri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Meropriyatiye_tip_Meropriyatiya_napravleniye">
+              <MappingFragment StoreEntitySet="Meropriyatiye_tip_Meropriyatiya_napravleniye">
+                <ScalarProperty Name="ID_meropriatiya" ColumnName="ID_meropriatiya" />
+                <ScalarProperty Name="ID_tip_meropriyatiya" ColumnName="ID_tip_meropriyatiya" />
+                <ScalarProperty Name="ID_napravleniya" ColumnName="ID_napravleniya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Napravleniya">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Napravleniya">
+              <MappingFragment StoreEntitySet="Napravleniya">
+                <ScalarProperty Name="ID_napravlenia" ColumnName="ID_napravlenia" />
+                <ScalarProperty Name="Napravlenie" ColumnName="Napravlenie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poli">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Poli">
+              <MappingFragment StoreEntitySet="Poli">
+                <ScalarProperty Name="ID_pol" ColumnName="ID_pol" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovatel_napravlenie">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Polzovatel_napravlenie">
+              <MappingFragment StoreEntitySet="Polzovatel_napravlenie">
+                <ScalarProperty Name="ID_polzovatel_napravlenie" ColumnName="ID_polzovatel_napravlenie" />
+                <ScalarProperty Name="ID_polzovatelya" ColumnName="ID_polzovatelya" />
+                <ScalarProperty Name="ID_napravlenie" ColumnName="ID_napravlenie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovatel_pol">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Polzovatel_pol">
+              <MappingFragment StoreEntitySet="Polzovatel_pol">
+                <ScalarProperty Name="ID_polzovatel_pol" ColumnName="ID_polzovatel_pol" />
+                <ScalarProperty Name="ID_polzovatelya" ColumnName="ID_polzovatelya" />
+                <ScalarProperty Name="ID_pola" ColumnName="ID_pola" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovatel_role">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Polzovatel_role">
+              <MappingFragment StoreEntitySet="Polzovatel_role">
+                <ScalarProperty Name="ID_polzovatel_role" ColumnName="ID_polzovatel_role" />
+                <ScalarProperty Name="ID_polzovatel" ColumnName="ID_polzovatel" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovateli">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Polzovateli">
+              <MappingFragment StoreEntitySet="Polzovateli">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Phamilia" ColumnName="Phamilia" />
+                <ScalarProperty Name="Ima" ColumnName="Ima" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="Pochta" ColumnName="Pochta" />
+                <ScalarProperty Name="Data_rozhdenia" ColumnName="Data_rozhdenia" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ID_strani" ColumnName="ID_strani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polzovateli_meropriatiya">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Polzovateli_meropriatiya">
+              <MappingFragment StoreEntitySet="Polzovateli_meropriatiya">
+                <ScalarProperty Name="ID_polzovatel_meropriyatia" ColumnName="ID_polzovatel_meropriyatia" />
+                <ScalarProperty Name="ID_polzovatelya" ColumnName="ID_polzovatelya" />
+                <ScalarProperty Name="ID_meropriatia" ColumnName="ID_meropriatia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Strani">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Strani">
+              <MappingFragment StoreEntitySet="Strani">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Cod2" ColumnName="Cod2" />
+                <ScalarProperty Name="Nazvanie_strani" ColumnName="Nazvanie_strani" />
+                <ScalarProperty Name="Angliiskoye_nazvanie" ColumnName="Angliiskoye_nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipi_meropriatiya">
+            <EntityTypeMapping TypeName="PracticaModeratorEntitiModel.Tipi_meropriatiya">
+              <MappingFragment StoreEntitySet="Tipi_meropriatiya">
+                <ScalarProperty Name="ID_tip_meroproatiya" ColumnName="ID_tip_meroproatiya" />
+                <ScalarProperty Name="Tip_meropriatiya" ColumnName="Tip_meropriatiya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73DC8CC1-6644-4E8B-98DD-3D2B5C5D6622}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DEmoPrac</RootNamespace>
+    <AssemblyName>DEmoPrac</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Models\Activnosti.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Activnost_meropriyatie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CaptchaPage.xaml.cs">
+      <DependentUpon>CaptchaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Goroda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gorod_meropriyatiye.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Meropriatiya.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Meropriyatie_juri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Meropriyatiye_tip_Meropriyatiya_napravleniye.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Napravleniya.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Poli.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polzovateli.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polzovateli_meropriatiya.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polzovatel_napravlenie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polzovatel_pol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polzovatel_role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Strani.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipi_meropriatiya.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\MeropriyatiaMy.cs" />
+    <Compile Include="RegistrationJuriMod.xaml.cs">
+      <DependentUpon>RegistrationJuriMod.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CaptchaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AuthorizationPage.xaml.cs">
+      <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FrameObj.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OrganizatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrationJuriMod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OrganizatorPage.xaml.cs">
+      <DependentUpon>OrganizatorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\PopitkiVvod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Polzovateli\foto1.jpg" />
+    <Resource Include="Polzovateli\foto10.jpg" />
+    <Resource Include="Polzovateli\foto11.jpg" />
+    <Resource Include="Polzovateli\foto12.jpg" />
+    <Resource Include="Polzovateli\foto13.jpg" />
+    <Resource Include="Polzovateli\foto14.jpg" />
+    <Resource Include="Polzovateli\foto15.jpg" />
+    <Resource Include="Polzovateli\foto16.jpg" />
+    <Resource Include="Polzovateli\foto17.jpg" />
+    <Resource Include="Polzovateli\foto18.jpg" />
+    <Resource Include="Polzovateli\foto19.jpg" />
+    <Resource Include="Polzovateli\foto2.jpg" />
+    <Resource Include="Polzovateli\foto20.jpg" />
+    <Resource Include="Polzovateli\foto21.jpg" />
+    <Resource Include="Polzovateli\foto22.jpg" />
+    <Resource Include="Polzovateli\foto23.jpg" />
+    <Resource Include="Polzovateli\foto24.jpg" />
+    <Resource Include="Polzovateli\foto25.jpg" />
+    <Resource Include="Polzovateli\foto26.jpg" />
+    <Resource Include="Polzovateli\foto27.jpg" />
+    <Resource Include="Polzovateli\foto28.jpg" />
+    <Resource Include="Polzovateli\foto29.jpg" />
+    <Resource Include="Polzovateli\foto3.jpg" />
+    <Resource Include="Polzovateli\foto30.jpg" />
+    <Resource Include="Polzovateli\foto31.jpg" />
+    <Resource Include="Polzovateli\foto32.jpg" />
+    <Resource Include="Polzovateli\foto33.jpg" />
+    <Resource Include="Polzovateli\foto34.jpg" />
+    <Resource Include="Polzovateli\foto35.jpg" />
+    <Resource Include="Polzovateli\foto36.jpg" />
+    <Resource Include="Polzovateli\foto37.jpg" />
+    <Resource Include="Polzovateli\foto38.jpg" />
+    <Resource Include="Polzovateli\foto39.jpg" />
+    <Resource Include="Polzovateli\foto4.jpg" />
+    <Resource Include="Polzovateli\foto40.jpg" />
+    <Resource Include="Polzovateli\foto41.jpg" />
+    <Resource Include="Polzovateli\foto42.jpg" />
+    <Resource Include="Polzovateli\foto43.jpg" />
+    <Resource Include="Polzovateli\foto44.jpg" />
+    <Resource Include="Polzovateli\foto45.jpg" />
+    <Resource Include="Polzovateli\foto46.jpg" />
+    <Resource Include="Polzovateli\foto47.jpg" />
+    <Resource Include="Polzovateli\foto48.jpg" />
+    <Resource Include="Polzovateli\foto49.jpg" />
+    <Resource Include="Polzovateli\foto5.jpg" />
+    <Resource Include="Polzovateli\foto50.jpg" />
+    <Resource Include="Polzovateli\foto51.jpg" />
+    <Resource Include="Polzovateli\foto52.jpg" />
+    <Resource Include="Polzovateli\foto53.jpg" />
+    <Resource Include="Polzovateli\foto54.jpg" />
+    <Resource Include="Polzovateli\foto55.jpg" />
+    <Resource Include="Polzovateli\foto56.jpg" />
+    <Resource Include="Polzovateli\foto57.jpg" />
+    <Resource Include="Polzovateli\foto58.jpg" />
+    <Resource Include="Polzovateli\foto59.jpg" />
+    <Resource Include="Polzovateli\foto6.jpg" />
+    <Resource Include="Polzovateli\foto60.jpg" />
+    <Resource Include="Polzovateli\foto61.jpg" />
+    <Resource Include="Polzovateli\foto62.jpg" />
+    <Resource Include="Polzovateli\foto63.jpg" />
+    <Resource Include="Polzovateli\foto64.jpg" />
+    <Resource Include="Polzovateli\foto65.jpg" />
+    <Resource Include="Polzovateli\foto66.jpg" />
+    <Resource Include="Polzovateli\foto67.jpg" />
+    <Resource Include="Polzovateli\foto68.jpg" />
+    <Resource Include="Polzovateli\foto69.jpg" />
+    <Resource Include="Polzovateli\foto7.jpg" />
+    <Resource Include="Polzovateli\foto70.jpg" />
+    <Resource Include="Polzovateli\foto8.jpg" />
+    <Resource Include="Polzovateli\foto9.jpg" />
+    <Resource Include="Meropriyatia\1.jpeg" />
+    <Resource Include="Meropriyatia\10.jpg" />
+    <Resource Include="Meropriyatia\11.jpg" />
+    <Resource Include="Meropriyatia\12.jpg" />
+    <Resource Include="Meropriyatia\13.jpg" />
+    <Resource Include="Meropriyatia\14.png" />
+    <Resource Include="Meropriyatia\15.jpg" />
+    <Resource Include="Meropriyatia\16.jpg" />
+    <Resource Include="Meropriyatia\17.jpg" />
+    <Resource Include="Meropriyatia\18.jpeg" />
+    <Resource Include="Meropriyatia\19.jpg" />
+    <Resource Include="Meropriyatia\2.jpeg" />
+    <Resource Include="Meropriyatia\20.jpg" />
+    <Resource Include="Meropriyatia\3.jpeg" />
+    <Resource Include="Meropriyatia\4.jpeg" />
+    <Resource Include="Meropriyatia\5.png" />
+    <Resource Include="Meropriyatia\6.jpg" />
+    <Resource Include="Meropriyatia\7.jpg" />
+    <Resource Include="Meropriyatia\8.jpeg" />
+    <Resource Include="Meropriyatia\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

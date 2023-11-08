@@ -1,0 +1,59 @@
+﻿<Page x:Class="DEmoPrac.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEmoPrac"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Просмотр мероприятий">
+
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left">
+                <Button x:Name="ToAuthButton" 
+                        Click="ToAuthButton_Click"
+                        Content="К авторизации" 
+                        Style="{StaticResource ButtonBack}"/>
+            </StackPanel>
+            <ScrollViewer>
+                <StackPanel HorizontalAlignment="Center">
+                <ComboBox Style="{StaticResource ComboBox}" 
+                          x:Name="NapravleniaCombobox" 
+                          SelectionChanged="NapravleniaCombobox_SelectionChanged"
+                          Width="300"
+                          SelectedValue="По умолчанию"/>
+                <ListBox  
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center" 
+                         BorderThickness="0"
+                         x:Name="ListBoxTemplate">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5" >
+                                <TextBlock x:Name="StringImage" 
+                                           Visibility="Hidden"
+                                           Text="{Binding ImageMer,StringFormat=.//Meropriyatia/{0}}"/>
+                                <Image Source="{Binding Text,ElementName=StringImage}"
+                                       Style="{StaticResource ImageMainPage}"/>
+                                <StackPanel>
+                                    <TextBlock x:Name="Nazvanie" 
+                                               Style="{StaticResource TextBlockMainPage}"
+                                               Text="{Binding Naimenovanie}"/>
+                                    <TextBlock x:Name="Napravlenie" 
+                                               Style="{StaticResource TextBlockMainPage}"
+                                               Text="{Binding Napravlenie}"/>
+                                    <TextBlock x:Name="Data" 
+                                               Style="{StaticResource TextBlockMainPage}"
+                                               Text="{Binding Date_nachala}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f7bea6445874f9db37546ec51fc09eb" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Activnost_meropriyatie" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Activnosti" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Gorod_meropriyatiye" Width="1.5" PointX="7.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Goroda" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Meropriatiya" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Meropriyatie_juri" Width="1.5" PointX="10.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Meropriyatiye_tip_Meropriyatiya_napravleniye" Width="1.5" PointX="10.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Napravleniya" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Poli" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Polzovatel_napravlenie" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Polzovatel_pol" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Polzovatel_role" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Polzovateli" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Polzovateli_meropriatiya" Width="1.5" PointX="10.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Role" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Strani" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModeratorEntitiModel.Tipi_meropriatiya" Width="1.5" PointX="8.25" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Activnost_meropriyatie_Activnosti" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Activnost_meropriyatie_Meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Activnost_meropriyatie_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatie_juri_Activnosti" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Gorod_meropriyatiye_Goroda" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Gorod_meropriyatiye_Meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriatiya_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatie_juri_Meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovateli_meropriatiya_Meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatie_juri_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Napravleniya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Meropriyatiye_tip_Meropriyatiya_napravleniye_Tipi_meropriatiya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_napravlenie_Napravleniya" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_pol_Poli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_napravlenie_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_pol_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_role_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovatel_role_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovateli_meropriatiya_Polzovateli" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModeratorEntitiModel.FK_Polzovateli_Strani" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

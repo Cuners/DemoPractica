@@ -1,0 +1,84 @@
+﻿<Page x:Class="DEmoPrac.OrganizatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEmoPrac"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="Окно организатора"
+      Background="White">
+
+    <Grid>
+        <DockPanel >
+            <Border DockPanel.Dock="Top" 
+                    BorderThickness="1" 
+                    BorderBrush="Black" >
+                <StackPanel HorizontalAlignment="Center" 
+                            Margin="0,0,0,20">
+                    <Label Content="Окно организатора"
+                       FontSize="30"/>
+
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" 
+                        DockPanel.Dock="Left" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" 
+                            Margin="20">
+                    <TextBlock Visibility="Hidden" 
+                               x:Name="StringImage"
+                               />
+                    <Image Width="200" 
+                           Height="200"
+                           Stretch="Fill"
+                           Margin="0,0,0,10"
+                           Source="{Binding Text,ElementName=StringImage}"
+                           />
+                    <Button x:Name="MyProfile" 
+                            Style="{StaticResource ButtonBack}" 
+                            Content="Мой профиль" 
+                            FontSize="12" Width="50" Height="50"
+                            Click="MyProfile_Click"
+                            />
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" DockPanel.Dock="Left"
+                            >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label x:Name="TimeNow"
+                               Style="{StaticResource LabelOnOrg}"/>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label x:Name="Pol"
+                           Style="{StaticResource LabelOnOrg}"/>
+                    <Label x:Name="Otchestvo"
+                           Style="{StaticResource LabelOnOrg}"/>
+                    
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Pol}"
+                               Style="{StaticResource LabelOnOrg}"/>
+                    <Label Content="{Binding Ima}"
+                               Style="{StaticResource LabelOnOrg}"/>
+                </StackPanel>
+                <Button x:Name="MeropriatiaButton" 
+                        Content="Мероприятия" 
+                            Style="{StaticResource PageOrgBut}"
+                        Click="MeropriatiaButton_Click"
+                        />
+                <Button x:Name="UchastnikiButton" 
+                        Content="Участники"
+                            Style="{StaticResource PageOrgBut}"
+                        Click="UchastnikiButton_Click"/>
+                <Button x:Name="JuriButton" Content="Жюри" 
+                            Style="{StaticResource PageOrgBut}"
+                        Click="JuriButton_Click"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Page>
